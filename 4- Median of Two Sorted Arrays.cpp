@@ -15,15 +15,9 @@ class Solution {
 public:
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
         double total = 0;
-        double median = 0;
         total = nums1.size() + nums2.size();
-        if (total / 2.0 == 1.0) median = find_kth_small(nums1, nums2, (total + 1.0) / 2.0);
-        else 
-        {
-            int m = find_kth_small(nums1, nums2, total / 2.0);
-            int n = find_kth_small(nums1, nums2, total / 2.0 + 1.0);
-            median = (m + n) / 2;        
-        }
-        return median;
+        if (total / 2.0 == 1.0) return find_kth_small(nums1, nums2, (total + 1.0) / 2.0);
+        else return (find_kth_small(nums1, nums2, total / 2.0) + find_kth_small(nums1, nums2, total / 2.0 + 1.0) ) / 2.0;                
+        return 0;
     }
 };
