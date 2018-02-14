@@ -14,10 +14,7 @@ double find_kth_small(vector<int> a, vector<int> b, int k) {
 class Solution {
 public:
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
-        double total = 0;
-        total = nums1.size() + nums2.size();
-        if (total / 2.0 == 1.0) return find_kth_small(nums1, nums2, (total + 1.0) / 2.0);
-        else return (find_kth_small(nums1, nums2, total / 2.0) + find_kth_small(nums1, nums2, total / 2.0 + 1.0) ) / 2.0;                
-        return 0;
+        int total = nums1.size() + nums2.size();
+        return (find_kth_small(nums1, nums2, (total + 1) / 2) + find_kth_small(nums1, nums2, (total + 2) /2) ) / 2.0;       
     }
 };
